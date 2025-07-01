@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockSensys AI Chatbot - Home</title>
+    <title>BlockSensys - AI-Powered Healthcare</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">BlockSensys</div>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="bdims-prototype.html">BDIMS Prototype</a></li>
-                <li><a href="adoption-model.html">Adoption Model</a></li>
-                <li><a href="goal.html">Goal</a></li>
-                <li><a href="get-in-touch.html">Get in Touch</a></li>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">BDIMS Prototype</a></li>
+                <li><a href="#">Adoption Model</a></li>
+                <li><a href="#">Goal</a></li>
+                <li><a href="#">Get in Touch</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Adaptive AI Chatbot for Preliminary Diagnostic Screening</h1>
-            <p>Revolutionizing healthcare access with AI-driven diagnostics for conditions like hypertension, respiratory infections, and diabetes. Try our simulation below to experience triage and scheduling.</p>
+            <div class="hero-content">
+                <h1>AI-Driven Diagnostics for the Future</h1>
+                <p>Transforming healthcare with blockchain-secured data and adaptive AI. Try our chatbot below to experience cutting-edge triage.</p>
+            </div>
+            <div class="particle-bg"></div>
         </section>
 
         <section class="chatbot-simulation">
-            <h2>Try Our Chatbot</h2>
+            <h2>Experience the Chatbot</h2>
             <div id="chatbot">
                 <div id="chat-output"></div>
                 <input type="text" id="chat-input" placeholder="Enter symptoms (e.g., cough, fever)" />
@@ -38,12 +43,12 @@
 
     <div id="survey-popup" class="popup hidden">
         <div class="popup-content">
-            <h3>Feedback Survey</h3>
-            <p>Would you adopt this AI chatbot for preliminary diagnostics?</p>
+            <h3>Quick Feedback</h3>
+            <p>Would you use this AI chatbot for diagnostics?</p>
             <form id="survey-form">
                 <label><input type="radio" name="adopt" value="yes"> Yes</label>
                 <label><input type="radio" name="adopt" value="no"> No</label>
-                <textarea placeholder="Additional comments"></textarea>
+                <textarea placeholder="Your thoughts..."></textarea>
                 <button type="submit">Submit</button>
                 <button onclick="closePopup()">Close</button>
             </form>
@@ -51,11 +56,9 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 BlockSensys. All rights reserved.</p>
+        <p>© 2025 BlockSensys. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
