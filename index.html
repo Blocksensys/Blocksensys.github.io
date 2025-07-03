@@ -3,62 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockSensys - AI-Powered Healthcare</title>
+    <title>BlockSensys - Agentic AI Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swiper">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="container">
             <div class="logo">BlockSensys</div>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">BDIMS Prototype</a></li>
-                <li><a href="#">Adoption Model</a></li>
-                <li><a href="#">Goal</a></li>
-                <li><a href="#">Get in Touch</a></li>
+                <li><a href="index.html" class="active">Cerebro AI</a></li>
+                <li><a href="product_ai_chatbot.html">Product AI</a></li>
+                <li><a href="bdims-prototype.html">Blockchain Prototype</a></li>
+                <li><a href="adoption-model.html">Patient Adoption</a></li>
+                <li><a href="get-in-touch.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>AI-Driven Diagnostics for the Future</h1>
-                <p>Transforming healthcare with blockchain-secured data and adaptive AI. Try our chatbot below to experience cutting-edge triage.</p>
+            <div class="hero-content container">
+                <h1>Cerebro AI</h1>
+                <p>Clinical Support, Preliminary Diagnostic, Triage Scheduling, Payment, and Insurance Automation ChatBot</p>
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro ChatBot</a>
+                
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Text</a>
+                
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Telegram</a>
+                <p></p>
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Slack</a>
+                
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro WhatsApp</a>
+                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Email</a>
             </div>
-            <div class="particle-bg"></div>
+            <canvas id="particle-canvas" class="hero-bg"></canvas>
+        </section>      
+
+        <section id="chatbot" class="chatbot-section container">
+            <div class="chatbot" id="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span>Cerebro Clinical Assistant</span>
+                    <button class="chatbot-toggle" id="chatbot-toggle"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatbot-messages"></div>
+                <form class="chatbot-input-form">
+                    <input type="text" class="chatbot-input" placeholder="Tell me your symptoms..." aria-label="Chatbot input">
+                    <button type="submit" class="chatbot-send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            <button class="chatbot-float" id="chatbot-float"><i class="fas fa-comment-medical"></i></button>
         </section>
 
-        <section class="chatbot-simulation">
-            <h2>Experience the Chatbot</h2>
-            <div id="chatbot">
-                <div id="chat-output"></div>
-                <input type="text" id="chat-input" placeholder="Enter symptoms (e.g., cough, fever)" />
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </section>
     </main>
 
-    <div id="survey-popup" class="popup hidden">
-        <div class="popup-content">
-            <h3>Quick Feedback</h3>
-            <p>Would you use this AI chatbot for diagnostics?</p>
+    <div class="survey-modal" id="survey-modal">
+        <div class="survey-content">
+            <h3>Your Feedback Matters</h3>
             <form id="survey-form">
-                <label><input type="radio" name="adopt" value="yes"> Yes</label>
-                <label><input type="radio" name="adopt" value="no"> No</label>
-                <textarea placeholder="Your thoughts..."></textarea>
-                <button type="submit">Submit</button>
-                <button onclick="closePopup()">Close</button>
+                <div class="survey-question">
+                    <p>1. Does your organization need an AI clinical support system for preliminary diagnosis and triage?</p>
+                    <label><input type="radio" name="q1" value="yes" required> Yes</label>
+                    <label><input type="radio" name="q1" value="no"> No</label>
+                </div>
+                <div class="survey-question">
+                    <p>2. What is the pain point you would want to address today?</p>
+                    <textarea id="pain-point" name="q2" required></textarea>
+                </div>
+                <div class="survey-question">
+                    <p>3. Would you like to schedule a 10-minute Zoom call to discuss your organizational processes?</p>
+                    <label><input type="radio" name="q3" value="yes" required> Yes</label>
+                    <label><input type="radio" name="q3" value="no"> No</label>
+                </div>
+                <div class="survey-question email-field" style="display: none;">
+                    <p>Please provide your email for scheduling:</p>
+                    <input type="email" id="email" name="email" placeholder="Your email">
+                </div>
+                <div class="survey-buttons">
+                    <button type="submit">Submit</button>
+                    <button type="button" id="survey-close">Close</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 BlockSensys. All rights reserved.</p>
+    <footer class="container">
+        <p>© 2025 BlockSensys</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
+    
 </body>
 </html>
