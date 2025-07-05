@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockSensys - Agentic AI Healthcare</title>
+    <title>BlockSensys</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swiper">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="container">
             <div class="logo">BlockSensys</div>
             <ul>
-                <li><a href="index.html" class="active">Cerebro AI</a></li>
-                <li><a href="product_ai_chatbot.html">Product AI</a></li>
-                <li><a href="bdims-prototype.html">Blockchain AI</a></li>
-                <li><a href="get-in-touch.html">Get in touch</a></li>
-                <li><a href="adoption-model.html"></a></li>
+                <li><a href="/index.html" class="active">Cerebro AI</a></li>
+                <li><a href="/product-ai.html">Product AI</a></li>
+                <li><a href="/blockchain-ai.html">Blockchain AI</a></li>
+                <li><a href="/get-in-touch.html">Get in touch</a></li>
             </ul>
         </nav>
     </header>
@@ -31,79 +30,74 @@
             <div class="hero-content container">
                 <h1>Cerebro AI</h1>
                 <p>Clinical Support, Preliminary Diagnostic, Triage Scheduling, Payment, and Insurance Automation ChatBot</p>
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro ChatBot</a>
-                
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Text</a>
-                
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Telegram</a>
-                <p></p>
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Slack</a>
-                
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro WhatsApp</a>
-                <a href="#chatbot" class="cta-button" id="cta-chatbot">Cerebro Email</a>
+                <ul>
+                    <li><a href="#" class="cta-button" id="cta-chatbot">Cerebro ChatBot</a></li>
+                    <li><a href="#" class="cta-button">Cerebro Text</a></li>
+                    <li><a href="#" class="cta-button">Cerebro Telegram</a></li>
+                    <li><a href="#" class="cta-button">Cerebro Slack</a></li>
+                    <li><a href="#" class="cta-button">Cerebro WhatsApp</a></li>
+                    <li><a href="#" class="cta-button">Cerebro Email</a></li>
+                </ul>
             </div>
             <canvas id="particle-canvas" class="hero-bg"></canvas>
-        </section>      
+        </section>
 
-        <section id="chatbot" class="chatbot-section container">
-            <div class="chatbot" id="chatbot-container">
+        <section class="chatbot-section">
+            <div class="chatbot active" id="chatbot-container">
                 <div class="chatbot-header">
-                    <div class="chatbot-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <span>Cerebro Clinical Assistant</span>
-                    <button class="chatbot-toggle" id="chatbot-toggle"><i class="fas fa-times"></i></button>
+                    <div class="chatbot-avatar">AI</div>
+                    <span>Cerebro AI</span>
+                    <button class="chatbot-toggle" id="chatbot-toggle">✖</button>
                 </div>
                 <div class="chatbot-messages" id="chatbot-messages"></div>
                 <form class="chatbot-input-form">
-                    <input type="text" class="chatbot-input" placeholder="Tell me your symptoms..." aria-label="Chatbot input">
-                    <button type="submit" class="chatbot-send">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                    <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type your message...">
+                    <button type="submit" class="chatbot-send">➤</button>
                 </form>
             </div>
-            <button class="chatbot-float" id="chatbot-float"><i class="fas fa-comment-medical"></i></button>
         </section>
 
+        <div class="survey-modal" id="survey-modal">
+            <div class="survey-content">
+                <h3>Your Feedback Matters</h3>
+                <form id="survey-form">
+                    <div class="survey-question">
+                        <p>1. Does your organization need an AI clinical support system for preliminary diagnosis and triage?</p>
+                        <label><input type="radio" name="q1" value="yes"> Yes</label>
+                        <label><input type="radio" name="q1" value="no"> No</label>
+                    </div>
+                    <div class="survey-question">
+                        <p>2. What is the pain point you would want to address today?</p>
+                        <textarea id="pain-point" required></textarea>
+                    </div>
+                    <div class="survey-question">
+                        <p>3. Would you like to schedule a 10-minute Zoom call to discuss your organizational processes?</p>
+                        <label><input type="radio" name="q3" value="yes"> Yes</label>
+                        <label><input type="radio" name="q3" value="no"> No</label>
+                    </div>
+                    <div class="survey-question email-field" style="display: none;">
+                        <p>Please provide your email for scheduling:</p>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="survey-buttons">
+                        <button type="submit">Submit</button>
+                        <button type="button" id="survey-close">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 
-    <div class="survey-modal" id="survey-modal">
-        <div class="survey-content">
-            <h3>Your Feedback Matters</h3>
-            <form id="survey-form">
-                <div class="survey-question">
-                    <p>1. Does your organization need an AI clinical support system for preliminary diagnosis and triage?</p>
-                    <label><input type="radio" name="q1" value="yes" required> Yes</label>
-                    <label><input type="radio" name="q1" value="no"> No</label>
-                </div>
-                <div class="survey-question">
-                    <p>2. What is the pain point you would want to address today?</p>
-                    <textarea id="pain-point" name="q2" required></textarea>
-                </div>
-                <div class="survey-question">
-                    <p>3. Would you like to schedule a 10-minute Zoom call to discuss your organizational processes?</p>
-                    <label><input type="radio" name="q3" value="yes" required> Yes</label>
-                    <label><input type="radio" name="q3" value="no"> No</label>
-                </div>
-                <div class="survey-question email-field" style="display: none;">
-                    <p>Please provide your email for scheduling:</p>
-                    <input type="email" id="email" name="email" placeholder="Your email">
-                </div>
-                <div class="survey-buttons">
-                    <button type="submit">Submit</button>
-                    <button type="button" id="survey-close">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <button class="chatbot-float" id="chatbot-float">💬</button>
 
-    <footer class="container">
-        <p>© 2025 BlockSensys</p>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
+    <footer>
+        <div class="container">
+            <p>© 2025 BlockSensys</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+            </div>
         </div>
     </footer>
-    
 </body>
 </html>
