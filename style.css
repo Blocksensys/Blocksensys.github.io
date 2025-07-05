@@ -182,8 +182,9 @@ nav a:hover, nav a.active {
 
 .chatbot {
     position: fixed;
-    bottom: 100px;
-    right: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 500px;
     max-width: 90vw;
     background: rgba(30, 58, 138, 0.95);
@@ -192,7 +193,7 @@ nav a:hover, nav a.active {
     box-shadow: 0 0 30px rgba(45, 212, 191, 0.3);
     display: none;
     flex-direction: column;
-    z-index: 999;
+    z-index: 1001;
 }
 
 .chatbot.active {
@@ -249,15 +250,15 @@ nav a:hover, nav a.active {
 }
 
 .message.user {
-    background: #2DD4BF;
-    align-self: flex-end;
+    background-color: #dae1e0;
     color: #1E3A8A;
+    align-self: flex-end;
 }
 
 .message.bot {
-    background: #3B82F6;
+    background-color: #dae1e0;
+    color: #1E3A8A;
     align-self: flex-start;
-    border: 1px solid #6EE7B7;
 }
 
 @keyframes slideIn {
@@ -503,24 +504,24 @@ nav a:hover, nav a.active {
 
 /* Footer */
 footer {
-    padding: 1rem 0; /* Reduced height */
-    background: linear-gradient(145deg, #1E3A8A, #3B82F6); /* Match page background */
+    padding: 1rem 0;
+    background: linear-gradient(145deg, #1E3A8A, #3B82F6);
     text-align: center;
 }
 
 footer p {
-    display: inline; /* Inline with links */
+    display: inline;
     margin-right: 1rem;
 }
 
 .footer-links {
-    display: inline; /* Inline with copyright */
+    display: inline;
 }
 
 .footer-links a {
     color: #6EE7B7;
     text-decoration: none;
-    margin: 0 0.5rem; /* Reduced margin for inline layout */
+    margin: 0 0.5rem;
     transition: all 0.3s ease;
 }
 
@@ -537,7 +538,7 @@ footer p {
         font-size: 2.5rem;
     }
     .hero p, .hero ul {
-        font-size:
+        font-size: 1.2rem;
     }
     nav ul {
         flex-direction: column;
@@ -546,10 +547,12 @@ footer p {
     }
     .chatbot {
         width: 90%;
-        right: 5%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     footer p, .footer-links {
-        display: block; /* Stack on mobile for readability */
+        display: block;
         margin: 0.5rem 0;
     }
 }
