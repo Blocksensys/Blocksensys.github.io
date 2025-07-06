@@ -1,4 +1,2 @@
-echo "blocksensys.com" > CNAME
-git add CNAME
-git commit -m "Add CNAME for custom domain"
-git push origin main
+blocksensys.com
+
